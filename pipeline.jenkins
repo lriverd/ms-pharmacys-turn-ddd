@@ -1,0 +1,110 @@
+@Library('pipeline-utils') _
+
+pipeline {
+    agent any
+
+    parameters {
+        booleanParam( \
+            name: 'sonarQube', \
+            description: 'Run SonarQube?', \
+            defaultValue: true)
+
+        booleanParam( name: 'fortify', \
+            description: 'Run Fortify Analysis?', \
+            defaultValue: false)
+
+        booleanParam( name: 'blackDuck', \
+                    description: 'Black Duck?', \
+                    defaultValue: false)
+
+        booleanParam( name: 'publish', \
+            description: 'Publish to Artifactory?', \
+            defaultValue: true)
+
+        booleanParam( name: 'deployBuild', \
+            description: 'Deploy Artifact on Server?', \
+            defaultValue: false)
+    }
+
+    options {
+        ansiColor('xterm')
+        timestamps()
+        timeout(time: 60, unit: 'MINUTES')
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        disableConcurrentBuilds()
+        skipDefaultCheckout true
+    }
+
+    tools {
+        jdk 'Oracle JDK 1.8'
+        gradle 'Gradle 4.3.1'
+    }
+
+    stages {
+        stage('clean_checkout') {
+          steps {
+            echo '===== Cleaning Workspace ====='
+            echo "::: Parameters Code Quality   -> " + params.sonarQube
+            echo "::: Parameters Fortify        -> " + params.fortify
+            echo "::: Parameters Publish        -> " + params.publish
+            echo "::: Parameters Deploy         -> " + params.deployBuild
+            deleteDir()
+            checkout scm
+            script {
+                workspace = env.WORKSPACE
+            }
+          }
+        }
+
+        stage('Build') {
+            steps {
+				echo '===== Compiling Code ====='
+				sh 'gradle clean build -x test'
+            }
+        }
+
+        stage('Code Quality') {
+              steps {
+                script {
+                    project = utils.getProjectName()
+                    repository = utils.getBitbucketRepoProject()
+                    branch = utils.getCurrentBranch()
+                    codeQuality.runInSlaves(project,repository,branch,params.sonarQube,params.fortify,params.blackDuck)
+                }
+              }
+        }
+
+
+        stage('Publish') {
+        	when { expression { params.publish || params.deployBuild } }
+            environment {
+                ARTIFACTORY = credentials('Artifactory')
+            }
+            steps {
+            	echo '===== Upload Artefact to Artefactory ====='
+                sh 'gradle uploadArchives'
+                script {
+                    artifact = readFile(file: 'artifact.txt', encoding: 'UTF-8')
+                    appName = artifact.split(':')[1]
+                    currentBuild.description = artifact
+                }
+            }
+        }
+
+       stage('Deploy') {
+           when { expression { params.deployBuild } }
+           agent none
+           steps {
+               build\
+               job: 'CLDFDEVOPS/job-deploy-was/master',\
+               parameters: [ \
+                   string(name: 'environment', value: 'DEV'),\
+                   string(name: 'artifact', value: artifact),\
+                   string(name: 'project', value: 'LTMCLPP'),\
+                   string(name: 'configuration', value: 'portalpyme_configuration'),\
+                   booleanParam(name: 'dryRun', value: false)
+               ]
+           }
+       }
+   }
+}

@@ -1,0 +1,38 @@
+/* ============================================================================
+   This file contains the configurations for depedencies project
+   ============================================================================
+
+   Included from: '${rootProject.projectDir}/build.gradle'
+   ============================================================================
+ */
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-validation'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.4.6'
+
+    //Jwt token
+    compile 'io.jsonwebtoken:jjwt:0.9.1'
+
+    //Database
+    compile 'org.liquibase:liquibase-core:3.6.1'
+    runtimeOnly 'com.h2database:h2:1.4.197'
+
+    //Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.ws:spring-ws-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-web'
+}
