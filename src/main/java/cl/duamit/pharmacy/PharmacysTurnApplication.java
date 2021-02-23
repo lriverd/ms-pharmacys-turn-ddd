@@ -9,12 +9,12 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = "classpath:version.properties", ignoreResourceNotFound = true)
 public class PharmacysTurnApplication implements CommandLineRunner {
 
-    public static void main(String[] args) {
-        SpringApplication.run(PharmacysTurnApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(PharmacysTurnApplication.class, args);
+	}
 
-    @Override
-    public void run(String... args) throws Exception {
+	@Override
+	public void run(String... args) throws Exception {
 
-    }
+	}
 }

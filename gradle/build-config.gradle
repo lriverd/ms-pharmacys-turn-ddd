@@ -1,8 +1,8 @@
 /* ============================================================================
-   This file contains the configurations for 
+   This file contains the configurations for
    This Project
    ============================================================================
-   
+
    Included from: "${rootProject.projectDir}/build.gradle"
    ============================================================================
  */
@@ -33,7 +33,6 @@ task createProperties(dependsOn: processResources) {
 			p['info.app.version'] = project.version.toString()
 			p['info.app.buildDate'] = new Date().format('yyyy-MM-dd HH:mm:ss')
 			p['info.app.artifactName'] = project.group + ":" + project.name + ":" + project.version
-			p['info.app.datapowerVersion'] = project.property("datapower.client.version").toString()
 			p.store w, null
 		}
 	}

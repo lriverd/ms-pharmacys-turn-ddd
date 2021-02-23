@@ -1,74 +1,23 @@
-<p align="center">
-<b>
-API PORTABILIDAD PYME</br>
-MS-CBK-PORTABILITY
-</b>
-</p>
+# ☕️ ms-pharmacys-turn
 
-<p align="center">
-<b>
-https://bitbucket.agile.bns/projects/LTMCLPP/repos/portalpyme_configuration/browse/ms-cbk-portability
-</b>
-</p>
+> ℹ️ rest api to organize and get nearest open pharmacy
 
-## Table of Contents
-* [Descripción](#descripcion)
-* [Tecnologías](#tecnolog�as)
-* [¿Cómo instalar/ejecutar?](#¿como-se-instala?)
-* [Pre- Requisitos](#pre-requisitos)
-* [¿Cómo configurar?](#como-configuar)
-* [Dependencias](#dependencias)
+## ☝️ Dependencies
 
-## Descripción
-**ms-pharmacy** .
+* Java 11
+* Gradle (Wrapper included)
+* Docker (if you want to run integration test)
 
-## Tecnologías
-* **Java 1.8**
-* **SpringBoot 1.5.22.RELEASE**
-* **Gradle 6.4.1**
+## 🏁 Install and Run
 
-## ¿Cómo instalar/ejecutar?
-```sh
+```bash
  ./gradlew bootRun
 ```
 
-### Variables de entorno de base de datos
-Las conexiones JNDI requeridas son hacia bases de datos Sybase, AS400 y Sql Server
-```sh
-#Local
-No se requieren jndi, springboot realiza conexion directa a las bases de datos
+## Contribute
 
-#Servidores WAS (DA1, PA5, . . . , PROD)
-Sql Server: jdbc/BD_CBK_REQUIREMENTS (reader)
-            jdbc/BD_CBK_REQUIREMENTS_DBO (owner)
+Contributions are always welcome!
+Please read the [contribution guidelines](CONTRIBUTING.md) first.
 
-```
-### Como testear la aplicación
-
-```sh
-./gradlew test
-```
-
-### Como construir la aplicación
-```sh
-./gradlew build
-```
-
-### Como ejecutar la aplicación
-```sh
-./gradlew bootRun
-```
-
-## Pre- Requisitos
-* Java 1.8
-
-## Como configurar la aplicación
-...
-
-
-## Dependencias
-* Servicio MS-Equifax
-* Datapower Bancos
-* Servicio ms-enterpise (Adminstrador)
-* Servicio notificación de correos
-* Servicio OMDm
+## Changelog
+You can find the changelog [here](CHANGELOG.md)
