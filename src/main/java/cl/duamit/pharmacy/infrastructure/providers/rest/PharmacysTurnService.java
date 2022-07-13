@@ -26,7 +26,6 @@ public class PharmacysTurnService extends RestService implements PharmacysTurn {
 	PharmacyRestMapper pharmacyRestMapper;
 
 	public List<PharmacyRest> getRestPharmacy() {
-		//this.buildUrl();
 		setConverter();
 		getHttpHeaders().setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<String> requestEntity = new HttpEntity<String>(getHttpHeaders());

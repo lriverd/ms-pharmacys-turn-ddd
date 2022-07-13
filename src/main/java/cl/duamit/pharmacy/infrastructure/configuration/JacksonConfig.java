@@ -1,4 +1,4 @@
-package cl.duamit.pharmacy.configuration;
+package cl.duamit.pharmacy.infrastructure.configuration;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
