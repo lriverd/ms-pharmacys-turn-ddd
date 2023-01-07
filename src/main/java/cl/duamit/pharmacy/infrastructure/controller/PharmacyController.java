@@ -35,7 +35,7 @@ public class PharmacyController {
 														 @RequestParam(value = "radiusKm", defaultValue = "10") Double maxKmRadius,
 														 HttpServletRequest request) throws Exception {
 
-		Coordinates coordinates = Coordinates.builder()
+		Coordinates coordinates = Coordinates.builder(
 			.latitude(lat)
 			.longitude(lng)
 			.build();
