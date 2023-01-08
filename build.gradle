@@ -12,9 +12,11 @@ plugins {
 /* - Include other gradle scripts - */
 /* -------------------------------- */
 def gradlePath = "${rootProject.projectDir}${project.property('gradle.path')}"
+
 apply from: "${gradlePath}/build-config.gradle"
 apply from: "${gradlePath}/build-java.gradle"
 apply from: "${gradlePath}/build-sonar.gradle"
 apply from: "${gradlePath}/build-artifact.gradle"
 apply from: "${gradlePath}/build-dependencies.gradle"
+apply from: "${gradlePath}/build-spotbugs.gradle"
 

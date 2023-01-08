@@ -1,0 +1,24 @@
+spotbugs{
+    ignoreFailures = false
+    effort = 'default'
+    showProgress = true
+    reportLevel = 'default'
+    excludeFilter = file("findbugs-exclude.xml")
+}
+
+spotbugsMain {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+spotbugsMain {
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+}
