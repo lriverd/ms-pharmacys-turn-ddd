@@ -22,7 +22,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Build with Gradle Wrapper
-        run: .\gradlew clean build
+        run: ./gradlew clean build
 
       - name: Rename Artifact
         run: cp target/ms-pharmacys-turn-1.0.0.jar ms-pharmacys-turn-${{ github.sha }}.jar
