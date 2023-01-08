@@ -46,4 +46,3 @@ pharmacy:
   turns:
     tmpl-url: ${pharmacy.host}/index.php/ws/getLocalesTurnos
 
-
