@@ -14,12 +14,7 @@ targetCompatibility = project.property("java.version")
 sourceCompatibility = project.property("java.version")
 
 
-//devops-pipeline version modification
-def branch = System.env.BRANCH_NAME
-if (branch) {
-	version += '-' + branch.replaceAll('[^A-Za-z0-9]+', '_')
-	version += '-' + new Date().format('yyyyMMddHHmm')
-}
+
 
 /* ------------------------------------ */
 /* ---- Create version.properties  ---- */

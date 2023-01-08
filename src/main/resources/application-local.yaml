@@ -1,23 +1,9 @@
 # ==================================================================================== #
 # APPLICATION CONFIGURATION
 # ==================================================================================== #
-server:
-  port: 8080
-  servlet:
-    context-path: /ms-pharmacys-turn
-
-springdoc:
-  version: '@springdoc.version@'
-
-app:
-  corsPattern: http://localhost:3000
-
 spring:
   application:
     name: ms-pharmacys-turn
-    profiles: dev
-  profiles:
-    active: dev
   jackson:
     property-naming-strategy: SNAKE_CASE
     default-property-inclusion: non_null
@@ -31,6 +17,9 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/changelog-master.xml
+
+app:
+  corsPattern: http://localhost:3000
 
 # Security
 security:

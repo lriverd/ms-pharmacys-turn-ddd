@@ -1,7 +1,7 @@
 /* ============================================================================
    This file contains the configurations for artifact treatment
    ============================================================================
-   
+
    Included from: "${rootProject.projectDir}/build.gradle"
    ============================================================================
  */
@@ -12,22 +12,5 @@ task artifactName {
     }
 }
 
-project.tasks.uploadArchives.dependsOn(artifactName)
-
-uploadArchives {
-//    dependsOn bootRepackage
-}
-
-uploadArchives {
-    repositories {
-        maven {
-            credentials {
-                username = "${System.getenv("ARTIFACTORY_USR")}"
-                password = "${System.getenv("ARTIFACTORY_PSW")}"
-            }
-            url = "${System.getenv("ARTIFACTORY_PUBLISH_URL")}"
-        }
-    }
-}
 
 

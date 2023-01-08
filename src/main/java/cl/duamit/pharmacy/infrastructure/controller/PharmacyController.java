@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
@@ -32,10 +30,9 @@ public class PharmacyController {
 	@GetMapping(value = BY_GEOLOCATION, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Object> getNearbyByCoordinates(@RequestParam(value = "lat") Double lat,
 														 @RequestParam(value = "lng") Double lng,
-														 @RequestParam(value = "radiusKm", defaultValue = "10") Double maxKmRadius,
-														 HttpServletRequest request) throws Exception {
+														 @RequestParam(value = "radiusKm", defaultValue = "10") Double maxKmRadius) throws Exception {
 
-		Coordinates coordinates = Coordinates.builder(
+		Coordinates coordinates = Coordinates.builder()
 			.latitude(lat)
 			.longitude(lng)
 			.build();
