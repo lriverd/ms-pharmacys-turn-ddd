@@ -46,10 +46,9 @@ jobs:
 #        uses: google-github-actions/deploy-cloudrun@v0.1.0
         uses: google-github-actions/setup-gcloud@v0
         with:
-#          image: gcr.io/cloudrun/hello
-          service: pharmacys-turn
-          project: ${{ secrets.gcp_project }}
-          credentials: ${{ secrets.gcp_credentials }}
+          service_account_key: pharmacys-turn
+          project_id: ${{ secrets.gcp_project }}
+          cleanup_credentials: ${{ secrets.gcp_credentials }}
 
 #      - name: Overwrite Markdown
 #        run: |
