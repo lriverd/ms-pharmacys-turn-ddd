@@ -50,6 +50,9 @@ jobs:
       - name: Deploy a Cloud Run service
         id: deploy-service
         uses: google-github-actions/setup-gcloud@v1
+        with:
+          service_account_key: pharmacys-turn
+          project_id: ${{ secrets.gcp_project }}
 
 #      - name: Overwrite Markdown
 #        run: |
