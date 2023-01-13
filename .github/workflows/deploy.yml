@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,31 +32,20 @@ jobs:
         with:
           name: ms-pharmacys-turn
           path: ms-pharmacys-turn-${{ github.sha }}.jar
-
-#      - name: Deploy an App Engine app
-#        id: deploy-app
-#        uses: google-github-actions/deploy-appengine@v0.1.0
-#        with:
-#          project: ${{ secrets.gcp_project }}
-#          deliverables: app.yaml
-#          credentials: ${{ secrets.gcp_credentials }}
-
+  deploy-to-gcp:
+    runs-on: ubuntu-latest
+    steps:
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.gcp_credentials }}
 
-      - name: Config a Cloud Run service
-        id: config-service
+      - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
-        with:
-          service_account_key: pharmacys-turn
-          project_id: ${{ secrets.gcp_project }}
 
-      - name: Deploy a Cloud Run service
-        id: deploy-service
-        uses: google-github-actions/deploy-cloudrun@v0.1.0
+      - name: Use gcloud CLI
+        run: gcloud info
 
 #      - name: Overwrite Markdown
 #        run: |
