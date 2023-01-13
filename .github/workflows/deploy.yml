@@ -41,14 +41,14 @@ jobs:
           deliverables: app.yaml
           credentials: ${{ secrets.gcp_credentials }}
 
-#      - name: Deploy a Cloud Run service
-#        id: deploy-service
-#        uses: google-github-actions/deploy-cloudrun@v0.1.0
-#        with:
+      - name: Deploy a Cloud Run service
+        id: deploy-service
+        uses: google-github-actions/deploy-cloudrun@v0.1.0
+        with:
 #          image: gcr.io/cloudrun/hello
-#          service: hello-cloud-run
-#          project: ${{ secrets.gcp_project }}
-#          credentials: ${{ secrets.gcp_credentials }}
+          service: pharmacys-turn
+          project: ${{ secrets.gcp_project }}
+          credentials: ${{ secrets.gcp_credentials }}
 
 #      - name: Overwrite Markdown
 #        run: |
