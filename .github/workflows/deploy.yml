@@ -55,8 +55,8 @@ jobs:
           project_id: ${{ secrets.gcp_project }}
 
       - name: Deploy a Cloud Run service
-          id: deploy-service
-          uses: google-github-actions/deploy-cloudrun@v0.1.0
+        id: deploy-service
+        uses: google-github-actions/deploy-cloudrun@v0.1.0
 
 #      - name: Overwrite Markdown
 #        run: |
