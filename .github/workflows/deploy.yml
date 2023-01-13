@@ -40,15 +40,15 @@ jobs:
 #          project: ${{ secrets.gcp_project }}
 #          deliverables: app.yaml
 #          credentials: ${{ secrets.gcp_credentials }}
+      - id: 'auth'
+          name: 'Authenticate to Google Cloud'
+          uses: 'google-github-actions/auth@v1'
+          with:
+            credentials_json: '${{ secrets.gcp_credentials }}'
 
       - name: Deploy a Cloud Run service
         id: deploy-service
-#        uses: google-github-actions/deploy-cloudrun@v0.1.0
-        uses: google-github-actions/setup-gcloud@v0
-        with:
-          service_account_key: pharmacys-turn
-          project_id: ${{ secrets.gcp_project }}
-          cleanup_credentials: ${{ secrets.gcp_credentials }}
+        uses: google-github-actions/setup-gcloud@v1
 
 #      - name: Overwrite Markdown
 #        run: |
