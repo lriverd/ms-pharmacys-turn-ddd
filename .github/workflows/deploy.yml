@@ -47,12 +47,16 @@ jobs:
         with:
           credentials_json: ${{ secrets.gcp_credentials }}
 
-      - name: Deploy a Cloud Run service
-        id: deploy-service
+      - name: Config a Cloud Run service
+        id: config-service
         uses: google-github-actions/setup-gcloud@v1
         with:
           service_account_key: pharmacys-turn
           project_id: ${{ secrets.gcp_project }}
+
+      - name: Deploy a Cloud Run service
+          id: deploy-service
+          uses: google-github-actions/deploy-cloudrun@v0.1.0
 
 #      - name: Overwrite Markdown
 #        run: |
