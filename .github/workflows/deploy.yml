@@ -40,11 +40,12 @@ jobs:
 #          project: ${{ secrets.gcp_project }}
 #          deliverables: app.yaml
 #          credentials: ${{ secrets.gcp_credentials }}
-      - id: 'auth'
-          name: 'Authenticate to Google Cloud'
-          uses: 'google-github-actions/auth@v1'
-          with:
-            credentials_json: '${{ secrets.gcp_credentials }}'
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.gcp_credentials }}
 
       - name: Deploy a Cloud Run service
         id: deploy-service
