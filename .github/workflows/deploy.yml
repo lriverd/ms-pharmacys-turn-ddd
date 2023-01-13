@@ -33,13 +33,13 @@ jobs:
           name: ms-pharmacys-turn
           path: ms-pharmacys-turn-${{ github.sha }}.jar
 
-      - name: Deploy an App Engine app
-        id: deploy-app
-        uses: google-github-actions/deploy-appengine@v0.1.0
-        with:
-          project: ${{ secrets.gcp_project }}
-          deliverables: app.yaml
-          credentials: ${{ secrets.gcp_credentials }}
+#      - name: Deploy an App Engine app
+#        id: deploy-app
+#        uses: google-github-actions/deploy-appengine@v0.1.0
+#        with:
+#          project: ${{ secrets.gcp_project }}
+#          deliverables: app.yaml
+#          credentials: ${{ secrets.gcp_credentials }}
 
       - name: Deploy a Cloud Run service
         id: deploy-service
