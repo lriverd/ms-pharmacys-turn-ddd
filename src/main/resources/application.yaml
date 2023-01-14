@@ -10,7 +10,7 @@ springdoc:
   version: '@springdoc.version@'
 
 app:
-  corsPattern: http://localhost:3000
+  corsPattern: ${CORS_PATTERN}
 
 spring:
   application:
