@@ -43,7 +43,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v1
 
       - name: Deploy to Cloud Run
-        run: gcloud beta run deploy ms-pharmacys-turn --image gcr.io/ms-pharmacys-turn/ms-pharmacys-turn-${{ github.sha }} --platform managed --region us-central1 --allow-unauthenticated
+        run: gcloud beta run deploy ms-pharmacys-turn --image gcr.io/ms-pharmacys-turn/ms-pharmacys-turn-${{ github.sha }} --platform managed --region us-central1 --allow-unauthenticated --quiet
 
       - name: Use gcloud CLI
         run: gcloud info
