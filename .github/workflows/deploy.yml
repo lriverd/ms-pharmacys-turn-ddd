@@ -24,14 +24,14 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew clean build
 
-      - name: Rename Artifact
-        run: cp build/libs/ms-pharmacys-turn-1.0.0.jar ms-pharmacys-turn-${{ github.sha }}.jar
-
-      - name: Save the artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: ms-pharmacys-turn
-          path: ms-pharmacys-turn-${{ github.sha }}.jar
+#      - name: Rename Artifact
+#        run: cp build/libs/ms-pharmacys-turn-1.0.0.jar ms-pharmacys-turn-${{ github.sha }}.jar
+#
+#      - name: Save the artifact
+#        uses: actions/upload-artifact@master
+#        with:
+#          name: ms-pharmacys-turn
+#          path: ms-pharmacys-turn-${{ github.sha }}.jar
 
       - name: Authenticate to Google Cloud
         id: auth

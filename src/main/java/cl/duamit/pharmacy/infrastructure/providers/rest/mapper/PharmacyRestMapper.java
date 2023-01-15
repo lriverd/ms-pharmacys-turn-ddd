@@ -4,6 +4,7 @@ import cl.duamit.pharmacy.domain.entities.Address;
 import cl.duamit.pharmacy.domain.entities.Coordinates;
 import cl.duamit.pharmacy.domain.entities.Pharmacy;
 import cl.duamit.pharmacy.infrastructure.providers.rest.model.PharmacyRest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Component
+@Slf4j
 public class PharmacyRestMapper {
 
 	public Pharmacy toPharmacy(PharmacyRest pharmacyRest) throws Exception{
@@ -20,11 +22,15 @@ public class PharmacyRestMapper {
 		Pharmacy response = new Pharmacy();
 		response.setId(pharmacyRest.getLocalId());
 		response.setName(pharmacyRest.getLocalNombre());
-
-		Coordinates c = Coordinates.builder()
-			.latitude(Double.parseDouble(pharmacyRest.getLocalLat().replaceAll("(^\\h*)|(\\h*$)","")))
-			.longitude(Double.parseDouble(pharmacyRest.getLocalLng().replaceAll("(^\\h*)|(\\h*$)","")))
-			.build();
+		Coordinates c = Coordinates.builder().build();
+		try {
+			c = Coordinates.builder()
+				.latitude(Double.parseDouble(pharmacyRest.getLocalLat().replaceAll("(^\\h*)|(\\h*$)", "")))
+				.longitude(Double.parseDouble(pharmacyRest.getLocalLng().replaceAll("(^\\h*)|(\\h*$)", "")))
+				.build();
+		}catch (Exception e){
+			log.error("Error en el formato de las coordenadas", e);
+		}
 
 		Address address = new Address();
 		address.setAddress(pharmacyRest.getLocalDireccion());
