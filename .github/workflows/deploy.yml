@@ -41,7 +41,8 @@ jobs:
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
-      - run: gcloud beta run services add-iam-policy-binding --region=us-central1 --member=allUsers --role=roles/run.invoker ms-pharmacys-turn
+      - name: IAM policy
+        run: gcloud run services add-iam-policy-binding --region=us-central1 --member=allUsers --role=roles/run.invoker ms-pharmacys-turn
       - name: Deploy to Cloud Run
         run: gcloud run deploy ms-pharmacys-turn --quiet --image gcr.io/ms-pharmacys-turn/ms-pharmacys-turn --platform managed --region us-central1 --allow-unauthenticated
 
