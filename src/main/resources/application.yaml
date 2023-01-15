@@ -10,7 +10,7 @@ springdoc:
   version: '@springdoc.version@'
 
 app:
-  corsPattern: ${CORS_PATTERN}
+  corsPattern: https://farmacias-de-turno-374604.uc.r.appspot.com
 
 spring:
   application:
