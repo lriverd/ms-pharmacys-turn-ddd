@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/location/structure/create.yaml
+  - include:
+      file: db/changelog/location/data/region.sql
+  - include:
+      file: db/changelog/location/data/provincia.sql
+  - include:
+      file: db/changelog/location/data/comuna.sql

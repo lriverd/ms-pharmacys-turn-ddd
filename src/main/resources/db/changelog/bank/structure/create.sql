@@ -1,20 +1,5 @@
 --liquibase formatted sql
---changeset lriveros:BNK_CREATE dbms:mssql
-
-/*
- Project:		LTMCLPP
- Name:			BD_CBK_REQUIREMENTS tables
- Description: 	Tables of bank creation script
- Author:      	Luis Riveros
- Since:         1.0.0 - 03 Sep 2020
- Version: 		1.0.0 - 03 Sep 2020
-
- Change History
- **************************
- Version	Date			Description
- ------  	-----------		------------------------------------
- 1.0.0		03 Sep 2020		TABLES CREATION
-*/
+--changeset author:lriverd failOnError:true
 
 SET ANSI_NULLS ON
 GO

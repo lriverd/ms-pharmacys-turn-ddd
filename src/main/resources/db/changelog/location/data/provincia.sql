@@ -1,73 +1,61 @@
 --liquibase formatted sql
---changeset asilva:LOC_CREATE dbms:mssql
+--changeset author:lriverd failOnError:true
 
-/*
- Project:		LTMCLPP
- Name:			BD_CBK_REQUIREMENTS tables
- Description: 	Table of Province insert script
- Author:      	Arturo Silva
- Since:         1.0.0 - 05 Ago 2020
- Version: 		1.0.0 - 05 Ago 2020
-
- Change History
- **************************
- Version	Date			Description
- ------  	-----------		------------------------------------
- 1.0.0		05 Ago 2020		TABLE INSERTS
-*/
-
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (11, 1, 'Iquique')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (14, 1, 'Tamarugal')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (21, 2, 'Antofagasta')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (22, 2, 'El Loa')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (23, 2, 'Tocopilla')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (31, 3, 'Copiapó')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (32, 3, 'Chañaral')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (33, 3, 'Huasco')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (41, 4, 'Elqui')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (42, 4, 'Choapa')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (43, 4, 'Limarí')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (51, 5, 'Valparaíso')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (52, 5, 'Isla de Pascua')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (53, 5, 'Los Andes')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (54, 5, 'Petorca')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (55, 5, 'Quillota')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (56, 5, 'San Antonio')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (57, 5, 'San Felipe de Aconcagua')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (61, 6, 'Cachapoal')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (62, 6, 'Cardenal Caro ')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (63, 6, 'Colchagua')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (71, 7, 'Talca')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (72, 7, 'Cauquenes')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (73, 7, 'Curicó')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (74, 7, 'Linares')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (81, 8, 'Linares')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (82, 8, 'Linares')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (83, 8, 'Linares')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (84, 8, 'Linares')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (91, 9, 'Cautín')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (92, 9, 'Malleco')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (101, 10, 'Llanquihue')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (102, 10, 'Chiloé')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (103, 10, 'Osorno')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (104, 10, 'Palena')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (111, 11, 'Coihaique')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (112, 11, 'Aisén')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (113, 11, 'Capitán Prat')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (114, 11, 'General Carrera')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (121, 12, 'Magallanes')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (122, 12, 'Antártica Chilena')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (123, 12, 'Tierra del Fuego')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (124, 12, 'Ultima Esperanza')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (131, 13, 'Santiago')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (132, 13, 'Cordillera')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (133, 13, 'Chacabuco')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (134, 13, 'Maipo')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (135, 13, 'Melipilla')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (136, 13, 'Talagante')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (141, 14, 'Valdivia')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (142, 14, 'Ranco')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (151, 15, 'Arica')
-INSERT INTO LOC_PROVINCIA (PRO_ID, REG_ID, PRO_DESCRIPTION) VALUES (152, 15, 'Parinacota')
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('011', '01', 'Iquique');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('014', '01', 'Tamarugal');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('021', '02', 'Antofagasta');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('022', '02', 'El Loa');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('023', '02', 'Tocopilla');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('031', '03', 'Copiapó');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('032', '03', 'Chañaral');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('033', '03', 'Huasco');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('041', '04', 'Elqui');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('042', '04', 'Choapa');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('043', '04', 'Limarí');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('051', '05', 'Valparaíso');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('052', '05', 'Isla de Pascua');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('053', '05', 'Los Andes');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('054', '05', 'Petorca');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('055', '05', 'Quillota');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('056', '05', 'San Antonio');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('057', '05', 'San Felipe de Aconcagua');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('058', '05', 'Marga Marga');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('061', '06', 'Cachapoal');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('062', '06', 'Cardenal Caro ');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('063', '06', 'Colchagua');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('071', '07', 'Talca');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('072', '07', 'Cauquenes');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('073', '07', 'Curicó');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('074', '07', 'Linares');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('081', '08', 'Concepción');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('082', '08', 'Arauco');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('083', '08', 'Biobío');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('091', '09', 'Cautín');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('092', '09', 'Malleco');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('101', '10', 'Llanquihue');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('102', '10', 'Chiloé');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('103', '10', 'Osorno');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('104', '10', 'Palena');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('111', '11', 'Coihaique');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('112', '11', 'Aisén');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('113', '11', 'Capitán Prat');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('114', '11', 'General Carrera');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('121', '12', 'Magallanes');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('122', '12', 'Antártica Chilena');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('123', '12', 'Tierra del Fuego');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('124', '12', 'Ultima Esperanza');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('131', '13', 'Santiago');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('132', '13', 'Cordillera');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('133', '13', 'Chacabuco');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('134', '13', 'Maipo');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('135', '13', 'Melipilla');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('136', '13', 'Talagante');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('141', '14', 'Valdivia');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('142', '14', 'Ranco');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('151', '15', 'Arica');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('152', '15', 'Parinacota');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('161', '16', 'Diguillín');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('162', '16', 'Itata');
+INSERT INTO LOC_PROVINCIA (pro_id, reg_id, pro_name) VALUES ('163', '16', 'Punilla');
 
 GO

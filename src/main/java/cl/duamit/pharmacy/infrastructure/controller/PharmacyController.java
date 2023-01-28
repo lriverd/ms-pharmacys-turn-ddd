@@ -18,10 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
-@RequestMapping("/v1/turn")
+@RequestMapping("/turn")
 public class PharmacyController {
 
 	private static final String BY_GEOLOCATION = "/by-geolocation";
+	private static final String BY_LOCALITY = "/by-locality";
 	private SearchPharmacys searchPharmacys;
 
 	@Operation(summary = "Get nearby pharmacys by geolocation coordinates")
@@ -38,6 +39,14 @@ public class PharmacyController {
 			.build();
 
 		return ok(searchPharmacys.getByGeolocation(coordinates, maxKmRadius * 1000));
+	}
+
+	@Operation(summary = "Get nearby pharmacys by locality name")
+	@ApiResponse(responseCode = "200", description = "Found a list of pharmacies",
+		content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Pharmacy.class))})
+	@GetMapping(value = BY_LOCALITY, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> getByLocality(@RequestParam(value = "pattern") String pattern) throws Exception {
+		return ok(searchPharmacys.getByLocality(pattern));
 	}
 
 

@@ -1,34 +1,21 @@
 --liquibase formatted sql
---changeset asilva:LOC_CREATE dbms:mssql
+--changeset author:lriverd failOnError:true
 
-/*
- Project:		LTMCLPP
- Name:			BD_CBK_REQUIREMENTS tables
- Description: 	Table of Region insert script
- Since:         1.0.0 - 05 Ago 2020
- Version: 		1.0.0 - 05 Ago 2020
-
- Change History
- **************************
- Version	Date			Description
- ------  	-----------		------------------------------------
- 1.0.0		05 Ago 2020		TABLE INSERTS
-*/
-
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (1, 'Tarapacá')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (2, 'Antofagasta')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (3, 'Atacama')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (4, 'Coquimbo')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (5, 'Valparaíso')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (6, 'Región del Libertador Gral. Bernardo OHiggins')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (7, 'Región del Maule')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (8, 'Región del Biobío')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (9, 'Región de La Araucanía')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (10, 'Región de Los Lagos')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (11, 'Región Aisén del Gral. Carlos Ibáñez del Campo')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (12, 'Región de Magallanes y de la Antártica Chilena')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (13, 'Región Metropolitana de Santiago')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (14, 'Región de Los Ríos')
-INSERT INTO LOC_REGION (REG_ID, REG_DESCRIPTION) VALUES (15, 'Arica y Parinacota')
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('01', 'Tarapacá');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('02', 'Antofagasta');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('03', 'Atacama');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('04', 'Coquimbo');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('05', 'Valparaíso');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('06', 'Libertador General Bernardo O''Higgins');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('07', 'Maule');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('08', 'Biobío');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('09', 'La Araucanía');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('10', 'Los Lagos');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('11', 'Aysén del General Carlos Ibáñez del Campo');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('12', 'Magallanes y de la Antártica Chilena');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('13', 'Metropolitana de Santiago');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('14', 'Los Ríos');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('15', 'Arica y Parinacota');
+INSERT INTO LOC_REGION (reg_id, reg_name) VALUES ('16', 'Ñuble');
 
 GO

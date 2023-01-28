@@ -1,19 +1,5 @@
 --liquibase formatted sql
---changeset asilva:LOC_CREATE dbms:mssql
-
-/*
- Project:		LTMCLPP
- Name:			BD_CBK_REQUIREMENTS tables
- Description: 	Tables of Location creation script
- Since:         1.0.0 - 05 Ago 2020
- Version: 		1.0.0 - 05 Ago 2020
-
- Change History
- **************************
- Version	Date			Description
- ------  	-----------		------------------------------------
- 1.0.0		05 Ago 2020		TABLES CREATION
-*/
+--changeset lriverd:LOC_CREATE dbms:mssql
 
 SET ANSI_NULLS ON
 GO

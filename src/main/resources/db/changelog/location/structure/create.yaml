@@ -1,0 +1,68 @@
+databaseChangeLog:
+  -  preConditions:
+     - runningAs:
+         username: SA
+
+  - changeSet:
+      id: 1
+      author: lriverd
+      changes:
+        - createTable:
+            tableName: LOC_REGION
+            columns:
+              - column:
+                  name: reg_id
+                  type: varchar(6)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: reg_short_name
+                  type: varchar(50)
+              - column:
+                  name: reg_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: LOC_PROVINCIA
+            columns:
+              - column:
+                  name: pro_id
+                  type: varchar(6)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: reg_id
+                  type: varchar(6)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_loc_reg_id
+                    references: LOC_REGION(reg_id)
+              - column:
+                  name: pro_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: LOC_COMUNA
+            columns:
+              - column:
+                  name: com_id
+                  type: varchar(6)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pro_id
+                  type: varchar(6)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_com_loc_id
+                    references: LOC_PROVINCIA(pro_id)
+              - column:
+                  name: com_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false

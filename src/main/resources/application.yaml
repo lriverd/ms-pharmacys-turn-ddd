@@ -4,7 +4,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /ms-pharmacys-turn
+    context-path: /ms-pharmacys-turn/v1
 
 springdoc:
   version: '@springdoc.version@'
@@ -15,37 +15,28 @@ app:
 spring:
   application:
     name: ms-pharmacys-turn
-    profiles: dev
-  profiles:
-    active: dev
   jackson:
     property-naming-strategy: SNAKE_CASE
     default-property-inclusion: non_null
   datasource:
-    url: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:myDb
     driver-class-name: org.h2.Driver
     username: sa
     password: sa
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      path: /h2
+      enabled: true
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/changelog-master.xml
-
+#    change-log: classpath:db/changelog/db.changelog-master.xml
 # Security
 security:
   jwt:
     secret: HUnu6O78pb765-BsaBth-gKbTY6-7B65G68bH8H$$+J-GI
     timeExp: 3600000000
-
-# Requirement Validation
-api:
-  rpmratio: 25
-
-# Liquibase update
-# ------------------------------ #
-datasource:
-  updateLiquibase: true
 
 # ==================================================================================== #
 # REST SERVICES
@@ -56,5 +47,8 @@ pharmacy:
   host: https://farmanet.minsal.cl/
   turns:
     tmpl-url: ${pharmacy.host}/index.php/ws/getLocalesTurnos
+logging:
+  level:
+    liquibase: INFO
 
 
