@@ -51,7 +51,7 @@ public class SearchPharmacys {
 		List<Pharmacy> pharmacyOpenList = pharmacysTurnService.getOpenPharmacy();
 
 		return pharmacyOpenList.stream()
-			.filter(x-> StringSimilarity.similarity(x.getAddress().getLocality(),locality)>.75)
+			.filter(x-> StringSimilarity.similarity(x.getAddress().getLocality(),locality)>.6)
 			.collect(Collectors.toList());
 	}
 
