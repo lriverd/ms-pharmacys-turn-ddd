@@ -21,7 +21,7 @@ public class PharmacyRestMapper {
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		Pharmacy response = new Pharmacy();
 		response.setId(pharmacyRest.getLocalId());
-		response.setName(pharmacyRest.getLocalNombre());
+		response.setName(pharmacyRest.getLocalNombre().replaceAll("FARMACIA ", ""));
 		Coordinates c = Coordinates.builder().build();
 		try {
 			c = Coordinates.builder()
@@ -46,12 +46,9 @@ public class PharmacyRestMapper {
 		LocalDateTime from = LocalDateTime.of(date, timeFrom);
 		LocalDateTime to = LocalDateTime.of(date, timeTo);
 
-		if (to.isBefore(from)) {
-			to = to.plusDays(1);
-		}
-
-		response.setOpenAt(from);
-		response.setCloseAt(to);
+		response.setOpenAt(timeFrom);
+		response.setCloseAt(timeTo);
+		response.setDia(date);
 
 		response.setPhone(pharmacyRest.getLocalTelefono());
 
