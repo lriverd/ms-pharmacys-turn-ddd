@@ -13,6 +13,7 @@ version = project.property("app.version")
 
 java {
     sourceCompatibility = project.property("java.version")
+    targetCompatibility = project.property("java.version")
 }
 
 
