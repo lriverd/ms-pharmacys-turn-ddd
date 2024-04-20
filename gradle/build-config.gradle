@@ -10,8 +10,10 @@
 description = project.property("app.description")
 group = project.property("app.group")
 version = project.property("app.version")
-targetCompatibility = project.property("java.version")
-sourceCompatibility = project.property("java.version")
+
+java {
+    sourceCompatibility = project.property("java.version")
+}
 
 
 
